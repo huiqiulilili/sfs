@@ -1,0 +1,102 @@
+#define _CRT_SECURE_NO_WARNINGS 1
+#include <stdio.h>
+#include <stdlib.h>
+//void printArray(int * arr, int n)
+//{
+//	int i;
+//	for (i = 0; i < n; i++)
+//	{
+//		printf("%d ", arr[i]);
+//	}
+//	putchar('\n');
+//}
+//
+//int main()
+//{
+//	int data[10];
+//	int i, j, n = 10;
+//
+//	
+//	puts("1");
+//	for (i = 1; i < n; i++)
+//	{
+//		data[i] = 1;
+//		for (j = i - 1; j > 0; j--)
+//		{
+//			data[j] += data[j - 1];
+//		}
+//		data[0] = 1;
+//
+//		printArray(data, i + 1);
+//	}
+//	system("pause");
+//	return 0;
+//}
+//void printf_data(int data[], int n)
+//{
+//	int i;
+//	for (i = 0; i < n; i++)
+//	{
+//		printf("%d", data[i]);
+//	}
+//	putchar('\n');
+//}
+//int main()
+//{
+//	int data[10];
+//	int n = 5;
+//	int i = 0;
+//	int j = 0;
+//	puts("1");
+//	for (i = 1; i < n; i++)
+//	{
+//		data[i] = 1;
+//		for (j = i - 1; j > 0; j--)
+//		{
+//			data[j] += data[j - 1];
+//		}
+//		data[0] = 1;
+//		printf_data(data, i + 1);
+//	}
+//	system("pause");
+//	return 0;
+//}
+int Ju(int a, int b, int c)
+{
+	int i = 0;
+	i |= 1 << a % 10;
+	i |= 1 << a / 10 % 10;
+	i |= 1 << a / 100;
+	//0000000000
+	//9876543210
+	//1111111110
+
+	i |= 1 << b % 10;
+	i |= 1 << b / 10 % 10;
+	i |= 1 << b / 100;
+
+	i |= 1 << c % 10;
+	i |= 1 << c / 10 % 10;
+	i |= 1 << c / 100;
+
+	return i == 0x3fe;
+}
+int main()
+{
+	int a, b, c;
+	for (a = 123; a <= 789; a++)
+	{
+		for (b = 123; b <= 789; b++)
+		{
+			for (c = 123; c <= 789; c++)
+			{
+				if (Ju(a, b, c) && b == a * 2 && c == 3 * a)
+				{
+					printf("%d %d %d\n", a, b, c);
+				}
+			}
+		}
+	}
+	system("pause");
+	return 0;
+}
