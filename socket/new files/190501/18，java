@@ -1,0 +1,18 @@
+public class a051603{
+	public static void print_l(){
+		int line = 10;
+for (int x = 0; x < line; x++) { //控制⾏数
+ for (int y = 0; y < line -x ; y++) {//控制空格
+ System.out.print(" ");
+ }
+ for (int z = 0; z < x ; z++ ) {
+ System.out.print("* ");
+ }
+ System.out.println();
+ }
+	}
+	
+	public static void main(String[] args){
+		print_l();
+	}
+}
